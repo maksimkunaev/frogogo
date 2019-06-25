@@ -62,7 +62,6 @@ class Card extends PureComponent {
           <div className={styles.details}>
             details
           </div>
-
         </div>
       </div>
     );
