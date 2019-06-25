@@ -1,0 +1,57 @@
+@import '../../css/base.styl'
+
+.header {
+  background-color $headerBackground
+  font-weight: 500;
+  .topLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+
+  .bottomLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .promoCode {
+    margin: 0 15px;
+    color $red
+  }
+
+  .status {
+    margin: 0 15px;
+    color $yellow
+  }
+
+  .balance {
+    margin-left: 0 15px;
+    display: flex
+    .amount {
+      color $green
+    }
+  }
+}
+
+.company {
+  display: flex;
+  align-items: center;
+
+}
+
+.region {
+  display: flex
+}
+
+.basket {
+  color $grey
+}
+
