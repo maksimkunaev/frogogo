@@ -8,8 +8,8 @@ import Select from 'components/Select/';
 import region from 'assets/png/icon-location-header@2x.png';
 import promoCode from 'assets/png/icon-addpromocod-header@2x.png';
 import goldStatus from 'assets/png/icon-gold-header@2x.png';
-import frogoLogo from 'assets/svg/logo-frogogo-header.svg';
-import basket from 'assets/svg/icon-cart-header.svg';
+import FrogoLogo from 'assets/svg/logo-frogogo-header.svg';
+import BasketLogo from 'assets/svg/icon-cart-header.svg';
 
 class Header extends Component {
   render() {
@@ -35,7 +35,7 @@ class Header extends Component {
             </section>
 
             <section className={styles.bottomLine}>
-              <img src={frogoLogo} alt="logo" height='30px'/>
+              <FrogoLogo />
               <Navigation />
               <Basket />
             </section>
@@ -50,7 +50,8 @@ class Basket extends PureComponent {
   render() {
     return (
       <div className={styles.basket}>
-        <IconText text='Корзина' className={styles.promoCode} icon={basket} width={20}/>
+        {/*<IconText text='Корзина' className={styles.promoCode} icon={basket} width={20}/>*/}
+        <BasketLogo />
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import container from "components/container";
 import styles from './Card.styl';
-import trash from 'assets/svg/icon-cart-trash.svg';
+import Trash from 'assets/svg/icon-cart-trash.svg';
 import Counter from 'components/Counter/';
 
 class Card extends PureComponent {
@@ -22,21 +22,21 @@ class Card extends PureComponent {
     const stuff = listItems[id];
     const { title, modification, discount, minDiscount, price } = stuff;
     const image = require( `assets/images/${stuff.image}`);
-    console.log(stuff.title, count)
 
     return (
       <div className={styles.card}>
         <div className={styles.header}>
-          {title} <img src={trash} alt={title} className={styles.trash}/>
+          {title} <Trash  className={styles.trash}/>
+          {/*<img src={trash} alt={title} className={styles.trash}/>*/}
         </div>
         <div className={styles.content}>
           <img src={image} alt={title} className={styles.image}/>
 
           <div>
-              {modification.map(({title, image}) =>
+              {modification.map(({title, Image}) =>
                 <div key={title} className={styles.modification}>
                   <span className={styles.title}>{title}</span>
-                  <img src={require(`assets/svg/${image}`)} alt={title} />
+                  <Image />
                 </div> )}
             <Counter initialValue={count} onIncrease={this.onIncrease} onDecline={this.onDecline}/>
           </div>

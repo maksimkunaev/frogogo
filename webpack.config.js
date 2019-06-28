@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const devMode = process.env.NODE_ENV !== 'production'
@@ -68,7 +69,7 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(eot|woff|woff2|ttf|jpg|svg|png|gif)$/,
+                test: /\.(eot|woff|woff2|ttf|jpg|png|gif)$/,
                 use: [
                     {
                         loader: 'file-loader',
@@ -77,6 +78,30 @@ module.exports = {
                         },
                     },
                 ],
+            },
+            {
+                test: /\.svg$/,
+                exclude: paths.modules,
+                oneOf: [
+                    {
+                        issuer: /\.jsx?$/,
+                        use: [
+                            {
+                                loader: 'babel-loader'
+                            },
+                            {
+                                loader: 'svg-react-loader',
+                            }
+                        ]
+                    },
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'static/[name].[ext]',
+                            outputPath: 'images/'
+                        }
+                    }
+                ]
             },
 
         ]
@@ -105,5 +130,11 @@ module.exports = {
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
+        new CopyPlugin([
+            {
+                from: path.join(__dirname, '/src/assets'),
+                to: path.join(__dirname, '/dist/')
+            }
+        ])
     ]
 }

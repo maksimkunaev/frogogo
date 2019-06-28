@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux';
+import Product01 from 'assets/svg/icon-color-product-01.svg';
 
 const listItems = {
     1: {
         title: 'Стакан YPSILON BRIO CAPPUCCINO 220мл',
         image: 'img-product-cart-01@2x.jpg',
-        modification: [{ title: 'Цвет',  image: 'icon-color-product-01.svg' }] ,
+        modification: [{ title: 'Цвет',  Image: Product01 }] ,
         price: 3580,
         id: 1,
         discount: 2000,
@@ -13,7 +14,7 @@ const listItems = {
     2: {
       title: 'Одеяло Woolfield Sunrise',
       image: 'img-product-cart-02@2x.jpg',
-      modification: [{ title: 'Размер',  image: 'product-size-action.svg' }] ,
+      modification: [{ title: 'Размер',  Image: Product01 }] ,
       price: 2000,
       id: 2,
       discount: 1000,
