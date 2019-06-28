@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import container from "components/container";
 import styles from './ChooseDiscount.styl';
 import { Slider, Switch } from 'antd';
-
+import { bind } from 'decko';
 
 class ChooseDiscount extends PureComponent {
   state = {
@@ -43,6 +43,17 @@ class ChooseDiscount extends PureComponent {
     }
   };
 
+  @bind
+  onChange(value) {
+    this.props.changeDiscount(this.tipFormatter(value));
+  }
+
+
+  @bind
+  tipFormatter(value) {
+    return value > 1000 ? 1000 : value;
+  }
+
   render() {
     const { basketItems, listItems } = this.props.data;
     const summ = basketItems.reduce((acc, current) => {
@@ -50,11 +61,13 @@ class ChooseDiscount extends PureComponent {
     }, 0);
     const { balance, useDiscount } = this.props.data;
 
+    const productsNumber = basketItems.filter(product => product.status !== 'gift');
+
     const { disabled } = this.state;
     return (
       <section className={styles.chooseDiscount}>
         <div className={styles.products}>
-          <div>3 товара на сумму</div>
+          <div>{productsNumber.length} товара на сумму</div>
           <div className={styles.amount}>{summ}</div>
         </div>
         <div className={styles.discount}>
@@ -64,8 +77,7 @@ class ChooseDiscount extends PureComponent {
         <div className={styles.description}>
           Передвигая лягушку, выберете сколько рублей с личного счета вы хотите потратить
         </div>
-        <Slider  max={balance} defaultValue={0} disabled={disabled} className={styles.slider} marks={this.renderMarks()}/>
-        {/*<Slider />*/}
+        <Slider  tipFormatter={this.tipFormatter} max={balance} defaultValue={0} disabled={disabled} className={styles.slider} marks={this.renderMarks()} onChange={this.onChange}/>
       </section>
     );
   }

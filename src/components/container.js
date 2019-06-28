@@ -13,13 +13,23 @@ const mapDispatchToProps = dispatch => ({
       id,
     })
   },
-  emptyTrash: (id, data) => {
+  emptyTrash: () => {
     dispatch({
       type: 'emptyTrash',
-      data,
-      id,
     })
   },
+  changeDiscount: value => {
+    dispatch({
+      type: 'changeDiscount',
+      value,
+    })
+  },
+  deleteProduct: id => {
+    dispatch({
+      type: 'deleteProduct',
+      id,
+    })
+  }
 })
 
 export default component => connect(mapStateToProps, mapDispatchToProps)(component);

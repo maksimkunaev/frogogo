@@ -67,7 +67,17 @@ function changeData(state = initialState.data, action) {
         return { ...state, basketItems: newbasketItems };
 
         case 'emptyTrash':
-        return { ...state, basketItems: [] };
+            return { ...state, basketItems: [] };
+
+        case 'changeDiscount':
+            return { ...state, useDiscount: action.value };
+
+        case 'deleteProduct':
+            const newBasketItems = [ ...state.basketItems ];
+            const index = newBasketItems.findIndex(product => product.id === action.id);
+            newBasketItems.splice(index, 1);
+
+            return { ...state, basketItems: newBasketItems };
     }
 
     return state;

@@ -18,6 +18,10 @@ class Card extends PureComponent {
     this.props.changeData(id, { count: count <= 0 ? 0 : count - 1 });
   };
 
+  onDelete = id => {
+    this.props.deleteProduct(id);
+  };
+
   renderModification() {
     const { count, id, listItems } = this.props;
     const stuff = listItems[id];
@@ -69,7 +73,7 @@ class Card extends PureComponent {
     return (
       <div className={styles.card}>
         <div className={styles.header}>
-          {title} <Trash  className={styles.trash}/>
+          {title} <Trash  className={styles.trash} onClick={() => this.onDelete(id)}/>
         </div>
         <div className={styles.content}>
           <img src={image} alt={title} className={styles.image}/>
