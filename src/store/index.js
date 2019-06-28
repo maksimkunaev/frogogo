@@ -4,16 +4,20 @@ const listItems = {
     1: {
         title: 'Стакан YPSILON BRIO CAPPUCCINO 220мл',
         image: 'img-product-cart-01@2x.jpg',
-        modification: [{ title: 'color',  value: 'yellow' }] ,
+        modification: [{ title: 'Цвет',  image: 'icon-color-product-01.svg' }] ,
         price: 3580,
         id: 1,
+        discount: 2000,
+        minDiscount: 2000,
     },
     2: {
-      title: 'Стакан YPSILON BRIO CAPPUCCINO 220мл',
-      image: 'img-product-cart-01@2x.jpg',
-      modification: [{ title: 'color',  value: 'yellow' }] ,
-      price: 3580,
+      title: 'Одеяло Woolfield Sunrise',
+      image: 'img-product-cart-02@2x.jpg',
+      modification: [{ title: 'Размер',  image: 'product-size-action.svg' }] ,
+      price: 2000,
       id: 2,
+      discount: 1000,
+      minDiscount: null,
   },
 }
 
@@ -30,8 +34,16 @@ const initialState = {
 
 function changeData(state = initialState.data, action) {
     switch (action.type) {
-        case 'change':
-            return state;
+      case 'changeData':
+            let newbasketItems = state.basketItems.map(item =>{
+              if (item.id === action.id) {
+                return { ...item, ...action.data}
+              }
+
+              return item;
+            }  )
+
+        return { ...state, basketItems: newbasketItems };
     }
 
     return state;

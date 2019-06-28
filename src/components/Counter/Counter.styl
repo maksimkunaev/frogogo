@@ -1,0 +1,25 @@
+@import '../../css/base.styl'
+
+.counter {
+  display: flex;
+  align-items: center
+  width: 80px;
+  justify-content: space-between;
+  .amount {
+    color #000
+    padding: 0
+    font-size 25px
+    margin: 0 7px;
+  }
+
+  button {
+    border none
+    outline none
+    cursor pointer
+    font-size: 18px;
+    font-weight: bold;
+    &:active, &:hover {
+      color: $green;
+    }
+  }
+}

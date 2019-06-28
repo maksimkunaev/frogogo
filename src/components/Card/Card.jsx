@@ -2,37 +2,28 @@ import React, { PureComponent } from 'react';
 import container from "components/container";
 import styles from './Card.styl';
 import trash from 'assets/svg/icon-cart-trash.svg';
-import { Badge, Button, Icon, Switch } from 'antd';
-
-const ButtonGroup = Button.Group;
+import Counter from 'components/Counter/';
 
 class Card extends PureComponent {
-  state = {
-    count: 5,
-    show: true,
+
+  onIncrease = () => {
+    const { id, count } = this.props;
+    this.props.changeData(id, { count: count < 0 ? 0 : count + 1 })
   };
 
-  increase = () => {
-    const count = this.state.count + 1;
-    this.setState({ count });
-  };
-
-  decline = () => {
-    let count = this.state.count - 1;
-    if (count < 0) {
-      count = 0;
-    }
-    this.setState({ count });
+  onDecline = () => {
+    const { id, count } = this.props;
+    this.props.changeData(id, { count: count <= 0 ? 0 : count - 1 });
   };
 
 
   render() {
     const { count, id, listItems } = this.props;
     const stuff = listItems[id];
-    const { title, modification } = stuff;
+    const { title, modification, discount, minDiscount, price } = stuff;
     const image = require( `assets/images/${stuff.image}`);
+    console.log(stuff.title, count)
 
-    console.log(stuff)
     return (
       <div className={styles.card}>
         <div className={styles.header}>
@@ -41,26 +32,19 @@ class Card extends PureComponent {
         <div className={styles.content}>
           <img src={image} alt={title} className={styles.image}/>
 
-          <div className={styles.modification}>
-            <div>
-              {modification.map(({title, value}) => <div>{title} {value} </div> )}
-
-            </div>
-
-            <div className={styles.counter}>
-              <Button onClick={this.decline}>
-                <Icon type="minus" />
-              </Button>
-              <p className={styles.amount}>{this.state.count}</p>
-              <Button onClick={this.increase}>
-                <Icon type="plus" />
-              </Button>
-            </div>
-
+          <div>
+              {modification.map(({title, image}) =>
+                <div key={title} className={styles.modification}>
+                  <span className={styles.title}>{title}</span>
+                  <img src={require(`assets/svg/${image}`)} alt={title} />
+                </div> )}
+            <Counter initialValue={count} onIncrease={this.onIncrease} onDecline={this.onDecline}/>
           </div>
-
           <div className={styles.details}>
-            details
+
+            <div>Полная цена: <span>{price * count}</span></div>
+            <div>Можно оплатить с личного счета: <span>{discount}</span></div>
+            <div>Минимально к оплате с личного счета: <span>{minDiscount}</span></div>
           </div>
         </div>
       </div>

@@ -7,6 +7,7 @@ import Card from 'components/Card/';
 class Main extends PureComponent {
   render() {
     const { basketItems, listItems } = this.props.data;
+    // console.log(`basketItems`, basketItems)
 
     return (
       <main>

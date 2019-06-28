@@ -6,10 +6,11 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  changeData: (data) => {
+  changeData: (id, data) => {
     dispatch({
-      type: 'changeBotsOrder',
+      type: 'changeData',
       data,
+      id,
     })
   },
 })

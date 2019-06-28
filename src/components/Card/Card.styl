@@ -11,6 +11,7 @@
 .header {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .trash {
@@ -19,26 +20,29 @@
 
 .content {
   display: flex;
-  align-items: center;
 }
-
-.counter {
+.modification {
+  color $grey
   display: flex;
   align-items: center
-  justify-content: center
-  .amount {
-    margin: 0
-    padding: 0
-    font-size 25px
+  width: 80px;
+  justify-content: space-between;
+  .title {
+    margin-right: 14px
+    margin-bottom: 10px;
   }
-
-  button {
-    border none
-  }
+}
+.details {
+  justify-content: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
 }
 
 
 .image {
   width: 100px;
   height: auto;
+  margin-right: 25px;
 }
