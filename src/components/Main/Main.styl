@@ -1,14 +1,27 @@
 @import '../../css/base.styl'
 
-.header {
-  width: 100%;
-
-  flex-grow: 1;
-  flex-basis: 50%;
-
-  height: 100%
-  min-height: 50%;
-  display: flex
-  flex-direction: column
-  overflow: hidden;
+.description {
+  card();
+  height: 110px;
+  display: flex;
+  align-items: center;
 }
+
+.title {
+  font-size: 19px;
+  font-weight: 500;
+  color: $black;
+  margin-right: 10px
+}
+.reset {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: $red;
+  font-size: 12px;
+  &:hover {
+    color: #c52626
+  }
+}
+

@@ -1,0 +1,52 @@
+@import '../../css/base.styl'
+
+.chooseDiscount {
+  card();
+}
+
+.products, .discount {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-weight 500
+}
+
+.products {
+  color $black
+}
+
+.discount {
+  color $green
+}
+
+.amount {
+  font-weight 700
+}
+
+.slider {
+  margin-top: 40px
+  :global {
+
+    .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+      border-color: $green;
+    }
+
+    .ant-slider-track, .ant-slider {
+      background-color: $green !important
+    }
+
+    .ant-slider-handle {
+      background-color transparent
+      border none
+      left: 30%;
+      background-image url('/assets/png/slider-knob@2x.png');
+      width: 30px;
+      height: 30px;
+      margin-top: -12px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+}

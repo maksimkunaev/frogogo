@@ -13,6 +13,13 @@ const mapDispatchToProps = dispatch => ({
       id,
     })
   },
+  emptyTrash: (id, data) => {
+    dispatch({
+      type: 'emptyTrash',
+      data,
+      id,
+    })
+  },
 })
 
 export default component => connect(mapStateToProps, mapDispatchToProps)(component);

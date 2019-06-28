@@ -26,6 +26,23 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.less$/,
+                use: [
+                    { loader: 'style-loader' },
+                    { loader: 'css-loader' },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            modifyVars: {
+                                'primary-color': '#000',
+                                'link-color': '#000',
+                                'border-radius-base': '2px',
+                            },
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.(js|jsx)/,
                 exclude: /node_modules/,
                 use: [
@@ -133,7 +150,7 @@ module.exports = {
         new CopyPlugin([
             {
                 from: path.join(__dirname, '/src/assets'),
-                to: path.join(__dirname, '/dist/')
+                to: path.join(__dirname, '/dist/assets')
             }
         ])
     ]
