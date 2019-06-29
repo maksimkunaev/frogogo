@@ -1,6 +1,4 @@
 node_modules/
-dist/*.*
-!dist/image/
 .idea
 .DS_Store
 
