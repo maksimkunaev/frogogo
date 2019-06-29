@@ -4,6 +4,7 @@ import container from "components/container";
 import styles from './Main.styl';
 import Card from 'components/Card/';
 import ChooseDiscount from 'components/ChooseDiscount/';
+import TotalCost from 'components/TotalCost/'
 
 class Main extends PureComponent {
   render() {
@@ -18,6 +19,7 @@ class Main extends PureComponent {
           </div>
           {basketItems.map(item => <Card { ...item } listItems={listItems} key={item.id}/>)}
           <ChooseDiscount />
+          <TotalCost />
         </Content>
       </main>
     );

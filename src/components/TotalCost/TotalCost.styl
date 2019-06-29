@@ -1,0 +1,85 @@
+@import '../../css/base.styl'
+
+.totalCost {
+  card();
+  border: 1px solid $lightGrey;
+  padding: 20px 0 0 0;
+  margin-bottom: 50px
+}
+
+.content {
+  padding: 0 20px 0 20px;
+}
+
+.delivery, .discount, .goldStatus, .refund {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+  font-weight 500
+  color $grey
+  border-bottom: 1px solid $lightGrey;
+  padding-bottom: 20px;
+  .amount {
+    font-weight 700
+    color $black
+  }
+}
+
+.discount {
+  color $black
+  border: none;
+  padding: 20px 0;
+  .amount {
+    font-weight 700
+    color $black
+  }
+}
+
+.goldStatus {
+  color $yellow
+  border: none;
+  padding: 0 0 20px 0;
+  .title {
+    display: flex
+  }
+  .amount {
+    font-weight 700
+    color $yellow
+  }
+}
+
+.refund {
+  color $green
+  border: none;
+  padding: 0 0 20px 0;
+  .title {
+    display: flex
+  }
+  .amount {
+    font-weight 700
+    color $green
+  }
+}
+
+.freeDelivery {
+  color: $green
+}
+
+.buyButton {
+  width: 100%;
+  padding: 10px;
+  background-color $lightGreen
+  color: $white
+  border: none;
+  cursor: pointer
+  outline: none;
+  font-size: 20px;
+  font-weight: 800;
+  font-family sans-serif
+  &:hover, &:active {
+    background-color $darkGreen
+  }
+}
+
+

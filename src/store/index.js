@@ -41,6 +41,7 @@ const listItems = {
 
 const initialState = {
     data: {
+        delivery: { minPrice: 1000, deliveryCost: 299},
         balance: 4700,
         useDiscount: 0,
         basketItems: [
@@ -60,7 +61,6 @@ function changeData(state = initialState.data, action) {
               if (item.id === action.id) {
                 return { ...item, ...action.data}
               }
-
               return item;
             }  )
 

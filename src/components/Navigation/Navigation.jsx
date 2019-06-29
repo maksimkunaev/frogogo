@@ -4,33 +4,45 @@ import Select from 'components/Select/'
 
 const menuList = [
   {
-    text: <Select items={ ['Категории']} color='#8f98a6'/>,
+    component: <Select items={ [ { component: 'Категории', key: 'Категории' }]} color='#8f98a6'/>,
+    key: 'Категории',
     link: '#',
   },
   {
-    text: 'Коллекции',
+    component: 'Коллекции',
+    key: 'Коллекции',
     link: '#',
   },
   {
-    text: 'Вопрос / Ответ',
+    component: 'Вопрос / Ответ',
+    key: 'Вопрос / Ответ',
     link: '#',
   },
   {
-    text: 'Как пополнить счет?',
+    component: 'Как пополнить счет?',
+    key: 'Как пополнить счет?',
     link: '#',
   },
   {
-    text: 'Поддержка',
+    component: 'Поддержка',
+    key: 'Поддержка',
     link: '#',
   }
 ]
 export default class Navigation extends PureComponent {
   render() {
+    const isVertical = this.props.position === 'vertical';
+
     return (
-      <nav className={styles.navigation}>
-        <ul className={styles.list}>
-          {menuList.map(item => <MenuItem {...item}  key={item.text}/>)}
-        </ul>
+      <nav className={this.props.className}>
+        { isVertical && <Select items={ menuList }/> }
+
+        { !isVertical &&
+          <ul className={styles.list}>
+            {menuList.map(item => <MenuItem {...item}  key={item.key}/>)}
+          </ul>
+        }
+
       </nav>
     );
   }
@@ -38,10 +50,10 @@ export default class Navigation extends PureComponent {
 
 class MenuItem extends PureComponent {
   render() {
-    const { text, link } = this.props;
+    const { component, link } = this.props;
 
     return (
-          <li ><a href={link} className={styles.menuItem}>{text}</a></li>
+          <li ><a href={link} className={styles.menuItem}>{component}</a></li>
     );
   }
 }

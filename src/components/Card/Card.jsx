@@ -48,7 +48,7 @@ class Card extends PureComponent {
       <div className={styles.details}>
         <div className={styles.price}>Полная цена: <span className={styles.amount}>{price * count}</span></div>
         <div className={styles.discount}>Можно оплатить с личного счета: <span className={styles.amount}>{discount}</span></div>
-        <div className={styles.minDiscount} style={{visibility: minDiscount ? 'visible' : 'hidden'}}>Минимально к оплате с личного счета: <span>{minDiscount}</span></div>
+        <div className={styles.minDiscount} style={{visibility: minDiscount ? 'visible' : 'hidden'}}>Минимально к оплате с личного счета: <span className={styles.amount}>{minDiscount}</span></div>
       </div>
     )
   }
@@ -76,8 +76,10 @@ class Card extends PureComponent {
           {title} <Trash  className={styles.trash} onClick={() => this.onDelete(id)}/>
         </div>
         <div className={styles.content}>
-          <img src={image} alt={title} className={styles.image}/>
-          { !isGift && this.renderModification()}
+          <div className={styles.leftBlock}>
+            <img src={image} alt={title} className={styles.image}/>
+            { !isGift && this.renderModification()}
+          </div>
           { !isGift && this.renderDetails()}
           { status === 'gift' && this.renderGift()}
         </div>

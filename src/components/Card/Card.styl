@@ -19,6 +19,13 @@
 
 .content {
   display: flex;
+  @media (max-width 645px) {
+    flex-direction: column;
+  }
+}
+
+.leftBlock {
+  display: flex;
 }
 
 .middle {
@@ -40,7 +47,6 @@
   }
 }
 
-
 .details {
   font-size 16px
   justify-content: space-between;
@@ -48,6 +54,9 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+  @media (max-width 645px) {
+    align-items: flex-start
+  }
 }
 
 .gift {
@@ -63,21 +72,26 @@
 
 .price {
   color: $grey;
+  font-size 14px
   .amount {
     color: $black;
     font-weight 700
+    font-size 18px
   }
 }
 
 .discount, .minDiscount {
-  color: $green;
+  font-size 14px
+  color: $lightGreen;
   .amount {
+    color: $green;
     font-weight 700
+    font-size 18px
   }
 }
 
 .image {
-  width: 100px;
+  width: 90px;
   height: auto;
   margin-right: 25px;
 }

@@ -10,7 +10,7 @@ class Select extends Component {
     const { items } = props;
 
     this.state = {
-      activeItem: items[0],
+      activeItem: items[0].key,
       menuItems: items
     }
   }
@@ -26,8 +26,8 @@ class Select extends Component {
     const { menuItems } = this.state;
     return (
       <Menu >
-        {menuItems.map(value =><Menu.Item key={value} onClick={this.onClick}>
-          {value}
+        {menuItems.map((value, idx) =><Menu.Item key={value.key || idx} onClick={this.onClick}>
+          {value.component}
         </Menu.Item>)}
       </Menu>
     )

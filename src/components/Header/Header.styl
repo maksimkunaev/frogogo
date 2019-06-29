@@ -8,6 +8,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 12px 0;
+    @media (max-width 590px) {
+      flex-direction: column;
+    }
   }
 
   .bottomLine {
@@ -18,10 +21,16 @@
   }
 }
 
+  .logo {
+    margin-bottom: 5px
+  }
 .identity {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width 590px) {
+    flex-direction: column;
+  }
   .promoCode {
     margin: 0 15px;
     color $red
@@ -44,7 +53,6 @@
 .company {
   display: flex;
   align-items: center;
-
 }
 
 .region {
@@ -53,5 +61,32 @@
 
 .basket {
   color $grey
+  position: relative
+  .basketCount {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #f00;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bolder;
+    top: -3px;
+    right: -5px;
+  }
+}
+
+.navigation {
+  flex-grow: 1;
+  justify-content: flex-end;
+  align-items: unsafe;
+  display: flex;
+  margin-right: 12px;
+  @media (max-width 590px) {
+    justify-content: flex-start;
+  }
 }
 
