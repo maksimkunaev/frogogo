@@ -16,7 +16,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'main1.js',
+        filename: 'main2.js',
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
