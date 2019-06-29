@@ -1,4 +1,4 @@
-import React, { PureComponent, Component } from 'react';
+import React, { Component } from 'react';
 import styles from './Select.styl';
 import { Menu, Dropdown, Icon } from 'antd';
 import  { bind } from 'decko';

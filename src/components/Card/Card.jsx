@@ -7,7 +7,6 @@ import IconText from 'components/IconText/'
 import goldStatus from 'assets/png/icon-gold@2x.png';
 
 class Card extends PureComponent {
-
   onIncrease = () => {
     const { id, count } = this.props;
     this.props.changeData(id, { count: count < 0 ? 0 : count + 1 })
@@ -48,7 +47,10 @@ class Card extends PureComponent {
       <div className={styles.details}>
         <div className={styles.price}>Полная цена: <span className={styles.amount}>{price * count}</span></div>
         <div className={styles.discount}>Можно оплатить с личного счета: <span className={styles.amount}>{discount}</span></div>
-        <div className={styles.minDiscount} style={{visibility: minDiscount ? 'visible' : 'hidden'}}>Минимально к оплате с личного счета: <span className={styles.amount}>{minDiscount}</span></div>
+        <div
+          className={styles.minDiscount}
+          style={{visibility: minDiscount ? 'visible' : 'hidden'}}
+        >Минимально к оплате с личного счета: <span className={styles.amount}>{minDiscount}</span></div>
       </div>
     )
   }
@@ -61,13 +63,11 @@ class Card extends PureComponent {
     )
   }
 
-
   render() {
     const { id, listItems, status } = this.props;
     const stuff = listItems[id];
     const { title } = stuff;
     const image = require( `assets/images/${stuff.image}`);
-
     const isGift = status === 'gift';
 
     return (

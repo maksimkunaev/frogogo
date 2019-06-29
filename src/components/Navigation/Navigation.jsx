@@ -36,13 +36,11 @@ export default class Navigation extends PureComponent {
     return (
       <nav className={this.props.className}>
         { isVertical && <Select items={ menuList }/> }
-
         { !isVertical &&
           <ul className={styles.list}>
             {menuList.map(item => <MenuItem {...item}  key={item.key}/>)}
           </ul>
         }
-
       </nav>
     );
   }
@@ -53,7 +51,7 @@ class MenuItem extends PureComponent {
     const { component, link } = this.props;
 
     return (
-          <li ><a href={link} className={styles.menuItem}>{component}</a></li>
+        <li ><a href={link} className={styles.menuItem}>{component}</a></li>
     );
   }
 }

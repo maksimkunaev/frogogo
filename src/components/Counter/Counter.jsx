@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import container from "components/container";
 import styles from './Counter.styl';
-import { Button, Icon } from 'antd';
+import { Icon } from 'antd';
 
 class Counter extends PureComponent {
   constructor(props) {
@@ -32,7 +32,6 @@ class Counter extends PureComponent {
     this.setState({ count });
     onDecline();
   };
-
 
   render() {
     const { count } = this.state;
