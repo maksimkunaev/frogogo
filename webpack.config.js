@@ -114,7 +114,7 @@ module.exports = {
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'static/[name].[ext]',
+                            name: 'assets/[name].[ext]',
                             outputPath: 'images/'
                         }
                     }
